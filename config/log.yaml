@@ -1,0 +1,44 @@
+development:
+  level: "debug"
+  encoding: "console"
+  output_paths: ["stdout"]
+  error_output_paths: ["stderr"]
+  encoder_config:
+    time_key: "timestamp"
+    level_key: "level"
+    name_key: "logger"
+    caller_key: "caller"
+    message_key: "msg"
+    stacktrace_key: "stacktrace"
+    level_encoder: "lowercase"
+    time_encoder: "iso8601"
+    duration_encoder: "string"
+    caller_encoder: "short"
+production:
+  level: "info"
+  encoding: "json"
+  output_paths: ["stdout", "file"]
+  error_output_paths: ["stderr", "file"]
+  encoder_config:
+    time_key: "timestamp"
+    level_key: "level"
+    name_key: "logger"
+    caller_key: "caller"
+    message_key: "msg"
+    stacktrace_key: "stacktrace"
+    level_encoder: "lowercase"
+    time_encoder: "epoch"
+    duration_encoder: "seconds"
+    caller_encoder: "short"
+  file_output:
+    filename: "./logs/app.log"
+    max_size: 100
+    max_age: 7
+    max_backups: 5
+    compress: true
+  error_file_output:
+    filename: "./logs/error.log"
+    max_size: 100
+    max_age: 20
+    max_backups: 10
+    compress: true

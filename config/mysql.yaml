@@ -1,0 +1,17 @@
+default: 
+  host: '127.0.0.1'
+  port: 3317
+  params: 'charset=utf8mb4&parseTime=True&loc=Local'
+  db_name: 'ai_bot'
+  username: 'root'
+  password: 'Secops@123'
+  max_idle_conns: 10
+  max_open_conns: 200
+  singular_table: true
+  table_prefix: ''
+  log_mode: true
+  log_mode_level: error # 错判级别 silent error warn info
+  log_zap: false
+  log_zap_level: info  # 错判级别 silent error warn info
+  slow_query_threshold: 2000 # ms 毫秒
+  ignore_record_not_found_error: true # 是否记录不存在的错误
